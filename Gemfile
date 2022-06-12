@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'gimei'
+  gem 'faker-japanese'
 end
 
 group :development do
