@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
 
     transient do
-      person = Gimei.name
+      person { Gimei.name }
     end
 
     nickname              {Faker::Name.name}
@@ -13,7 +13,7 @@ FactoryBot.define do
     last_name             {person.last.kanji}
     first_name_kana       {person.first.katakana}
     last_name_kana        {person.last.katakana}
-    birthday              {Faker.Date.birthday}
+    birthday              {Faker::Date.birthday(min_age: 18, max_age: 65)}
 
   end
 end
