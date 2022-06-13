@@ -5,9 +5,11 @@ class Item < ApplicationRecord
   belongs_to :ship_charge
   belongs_to :prefecture
   belongs_to :take_days
+  has_one_attached :image
 
   validates :item_name, presence: true
   validates :content, presence: true
+  validates :total_price, presence: true
 
   validates :category_id, numericality: { other_than: 1, message: "カテゴリーを選んでください" } 
   validates :status_id, numericality: { other_than: 1, message: "商品の状態を選んでください"}
