@@ -2,15 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def create
-    @user = User.new(configure_permitted_parameters)
-    if @user.save
-      redirect_to 'items#index'
-    else
-      render :create
-    end
-  end
-
   private
 
   def configure_permitted_parameters
