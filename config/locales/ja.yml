@@ -28,7 +28,7 @@ ja:
       user:
         invalid: 入力が正しくありません
         not_found_in_database: 入力が正しくありません
-        unauthenticated: ログインしてください
+        unauthenticated: ログインが必要です
 
     sessions:
       user:
