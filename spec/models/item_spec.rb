@@ -90,6 +90,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("販売価格は9999999円以下に設定してください")
       end
+
+      it 'userが紐づいていないと出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("ユーザーが存在しません")
+      end
     end
   end
 end
