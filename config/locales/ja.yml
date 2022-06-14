@@ -22,6 +22,8 @@ ja:
         prefecture_id: 発送元の地域
         take_days_id: 発送までの日数
         total_price: 販売価格
+        user: ユーザー
+        user_id: ユーザー
 
   devise:
     failure:
