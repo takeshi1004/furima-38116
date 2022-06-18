@@ -1,13 +1,12 @@
 class OrderShip
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :phone_number, :order_id, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :phone_number, :user_id, :item_id
   
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフン(-)を含めてください" }
     validates :city
     validates :address1
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, messages: "が正しくありません" }
-    validates :order_id
     validates :user_id
     validates :item_id
   end
