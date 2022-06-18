@@ -24,6 +24,13 @@ ja:
         total_price: 販売価格
         user: ユーザー
         user_id: ユーザー
+      
+      order:
+        postal_code: 郵便番号
+        city: 市区町村
+        address1: 番地
+        address2: 建物名
+        phone_number: 電話番号
 
   devise:
     failure:
