@@ -12,7 +12,7 @@ class OrderShip
     validates :item_id
   end
 
-  validates :prefecture_id, numericality: { other_than: 0, message: "を選んでください" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "を選んでください" }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
