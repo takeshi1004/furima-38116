@@ -4,7 +4,8 @@ class OrderShip
   
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフン(-)を含めてください" }
+    validates :postal_code
+    validates :prefecture_id, numericality: { other_than: 1, message: "を選んでください" }
     validates :city
     validates :address1
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, messages: "が正しくありません" }
@@ -12,7 +13,7 @@ class OrderShip
     validates :item_id
   end
 
-  validates :prefecture_id, numericality: { other_than: 1, message: "を選んでください" }
+  validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフン(-)を含めてください" }, allow_blank: true
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
