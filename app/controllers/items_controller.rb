@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def update
@@ -37,7 +40,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    redirect_to action: :index
+    redirect_to root_path
   end
 
   private
@@ -52,7 +55,7 @@ class ItemsController < ApplicationController
 
   def move_to_index
     unless current_user.id == @item.user_id
-      redirect_to action: :index
+      redirect_to root_path
     end
   end
 end
