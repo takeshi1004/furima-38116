@@ -134,7 +134,7 @@
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
 
-            <% if %>
+            <% if item.order.present? %>
               <div class='sold-out'>
                 <span>Sold Out!!</span>
               </div>
@@ -157,7 +157,7 @@
         </li>
       <% end %>
 
-      <% unless @items.any? %>
+      <% unless @items.present? %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
