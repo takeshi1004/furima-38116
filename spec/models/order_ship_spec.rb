@@ -5,7 +5,6 @@ RSpec.describe OrderShip, type: :model do
     before do
       item = FactoryBot.create(:item)
       @order_ship = FactoryBot.build(:order_ship, user_id: item.user_id, item_id: item.id)
-      sleep 0.05
     end
 
     context '保存できる場合' do
