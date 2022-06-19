@@ -9,9 +9,9 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
 
-      <% if %>
+      <% if @item.order.present? %>
         <div class="sold-out">
-          <span>Sold Out!!</span> <%# 売却済みの商品に対して表示 %>
+          <span>Sold Out!!</span>
         </div>
       <% end %>
 
@@ -25,14 +25,16 @@
       </span>
     </div>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @item.present? %>
       <% if current_user.id == @item.user_id %>
+        <% unless @item.order.present? %>
         <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
+        <% end %>
       <% else %>
-        <% if %>
-        <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%> <%# 売却済みでない商品に対して表示 %>
+        <% unless @item.order.present? %>
+        <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
         <% end %>
       <% end %>
     <% end %>
