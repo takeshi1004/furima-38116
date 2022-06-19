@@ -1,8 +1,9 @@
 class OrderShip
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :phone_number, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :phone_number, :user_id, :item_id, :token
   
   with_options presence: true do
+    validates :token
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフン(-)を含めてください" }
     validates :city
     validates :address1
