@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :item do
-    item_name      {Faker::Name.last_name}
-    content        {Faker::Lorem.sentence}
+    item_name      { 'オムライス' }
+    content        { '卵がふわふわ' }
     category_id    {2}
     status_id      {2}
     ship_charge_id {2}
     prefecture_id  {2}
     take_days_id   {2}
-    total_price    {Faker::Number.within(range: 300..9999999)}
+    total_price    { 500 }
     association :user
 
     after(:build) do |message|
