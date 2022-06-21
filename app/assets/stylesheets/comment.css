@@ -2,6 +2,18 @@
   display: flex;
 }
 
+#comment-form {
+  margin: 0 auto;
+}
+
+.comments-head {
+  font-size: 20px;
+}
+
+#comments-body {
+  margin: 25px;
+}
+
 .comment-text {
   display: block;
   margin-top: 20px;
