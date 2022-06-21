@@ -20,8 +20,8 @@ if (location.pathname.match(/\/items\/\d/)) {
           <p class="user-info">${data.user.nickname}： </p>
           <p>${data.comment.text}</p>
         </div>`
-      const comments = document.getElementById("comments")
-      comments.insertAdjacentHTML('beforeend', html)
+      const commentsBody = document.getElementById("comments-body")
+      commentsBody.insertAdjacentHTML('beforeend', html)
       const commentForm = document.getElementById("comment-form")
       commentForm.reset();
 
